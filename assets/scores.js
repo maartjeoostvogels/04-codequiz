@@ -2,7 +2,8 @@ var scoresheet = document.getElementById("scoresheet")
 var backtoQuiz = document.getElementById("backtoQuiz")
 
 function onBackToQuiz() {
-    window.location.href = 'bootcamphw04-codequiz/index.html'
+    console.log("going back to quiz now");
+    window.location.href = 'index.html'
 }
 
 for (var i = 0; i < localStorage.length; i++) {
@@ -10,8 +11,8 @@ for (var i = 0; i < localStorage.length; i++) {
     var initials = localStorage.key(i);
     var score = localStorage.getItem(initials);
 
-    var result = document.creatElement("div");
-    results.classList.add("result");
+    var result = document.createElement("div");
+    result.classList.add("result");
 
     result.innerHTML = `<div class="score-item">${initials}</div>
         <div class="score-item">${score}</div>`

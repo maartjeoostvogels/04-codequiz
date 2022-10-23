@@ -41,7 +41,7 @@ function onSaveScore(e) {
 }
 
 function onviewScores(e) {
-    window.location.href = 'assets/scores.html';
+    window.location.href = 'scores.html';
 }
 
 function onSelectAnswer(e) {
@@ -56,6 +56,7 @@ if (correctAnswer === userAnswer) {
 } else {
 
     score--;
+    secondsLeft-=5;
     displayMessage("Et Tu Brute?")
 }
 
