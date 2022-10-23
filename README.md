@@ -22,4 +22,4 @@ WHEN the game is over
 THEN I can save my initials and score
 
 ## Screenshot
-![Screenshot of Code Quiz Website](./images/screenshot.png)
+![Screenshot of Code Quiz Website](./assets/images/screenshot.png)
