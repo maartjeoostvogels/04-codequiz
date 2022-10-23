@@ -11,33 +11,30 @@
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 
-<body>
+<body class="box">
     <header>
-        <div id="timer"></div>
+        <div id="timer" class="timer hidden"></div>
     </header>
     <main>
         <div id="welcome">
             <h1>Welcome to Maartje's Magical Coding Quiz!</h1>
-            <button id="startQuiz" class="btn">Let's Go!</button>
+            <button id="startQuiz" class="btn btn-big">Let's Go!</button>
         </div>
-        <div id="quiz" class="hidden">
-            <div id="question">
-
+        <div id="message" class="message visually-hidden">
+            Waiting for answer
+        </div>
+        <div id="quiz">
+            <div id="question" class="question">
             </div>
             <div id="options">
-
-            </div>
-            <div id="message">
-
             </div>
         </div>
         <div id="result" class="hidden">
-            <div id="summary"></div>
+            <div id="summary" class="summary"></div>
             <button id="viewScores" class="btn">View All High Scores</button>
-            <input type="text" id="initials" placeholder="Enter your initials" />
+            <input type="text" id="initials" class="initials" placeholder="Enter your initials" />
             <button id="saveScore" class="btn">Save Score</button>
-            <button id="playAgain" class="btn">Play Again</button>
-
+            <button id="playAgain" class="btn btn-again">Play Again</button>
         </div>
     </main>
 </body>

@@ -18,25 +18,28 @@ var secondsLeft = 0;
 var score = 0;
 var currentQuestion = 0;
 var countdownTimer;
+var messageTimeout;
 
 function stopGame() {
-
     clearInterval(countdownTimer);
-    timer.textContent = ""
+    timer.textContent = "";
+    timer.classList.add("hidden");
 
     quiz.style.display = "none";
-    result.style.display = "flex"
+    result.style.display = "block";
 
     summary.textContent = "Your Score Is: " + score;
 }
 
 function onSaveScore(e) {
-    var initials = document.getElementById("initials").value
+    var initials = document.getElementById("initials").value;
 
     if (initials !== "") {
         localStorage.setItem(initials, score);
 
         document.getElementById("initials").value = "";
+
+        window.location.href = 'scores.html';
     }
 }
 
@@ -45,51 +48,51 @@ function onviewScores(e) {
 }
 
 function onSelectAnswer(e) {
-var correctAnswer = questions[currentQuestion].answer;
-var userAnswer = e.target.textContent;
+    var correctAnswer = questions[currentQuestion].answer;
+    var userAnswer = e.target.textContent;
 
-if (correctAnswer === userAnswer) {
-    score++;
+    if (correctAnswer === userAnswer) {
+        score++;
+        displayMessage("Correct! Go Sweet Babylegs!", { isCorrect: true });
+    } else {
+        score--;
+        secondsLeft-=5;
+        displayMessage("Wrong! :'(", { isCorrect: false });
+    }
+    currentQuestion++;
 
-    displayMessage("Go Sweet Babylegs!")
-
-} else {
-
-    score--;
-    secondsLeft-=5;
-    displayMessage("Et Tu Brute?")
+    displayQuestion();
 }
 
-displayQuestion();
-}
-
-function displayMessage(msg) {
+function displayMessage(msg, options) {
     message.textContent = msg;
+    message.classList.remove("visually-hidden");
+    message.classList.remove("correct");
 
-    setTimeout(function () {
-        message.textContent = "";
-    },2000);
+    if (options.isCorrect) {
+        message.classList.add("correct");
+    }
+
+    clearTimeout(messageTimeout);
+    messageTimeout = setTimeout(function () {
+        message.textContent = "Waiting for answer";
+        message.classList.add("visually-hidden");
+    }, 2000);
 }
 
 function displayQuestion() {
-    
-    currentQuestion++;
-
-    console.log('current question is ' + currentQuestion);
-
     if (currentQuestion >= questions.length) {
         stopGame();
-        return
+        return;
     }
 
     var question = questions[currentQuestion];
-    document.getElementById("question").textContent = question.title
+    document.getElementById("question").textContent = question.title;
 
     options.innerHTML = "";
 
     for (var i = 0; i < question.choices.length; i++) {
-
-        var option = document.createElement("div");
+        var option = document.createElement("button");
         option.textContent = question.choices[i];
         option.onclick = onSelectAnswer;
         option.classList.add("option");
@@ -99,10 +102,18 @@ function displayQuestion() {
 }
 
 function onStartGame() {
-        secondsLeft = 75;
+        secondsLeft = 50;
         currentQuestion = 0;
         score = 0;
 
+        timer.textContent = secondsLeft;
+        timer.classList.remove("hidden");
+        startQuiz.classList.add("hidden");
+
+        quiz.style.display = "block";
+        result.style.display = "none";
+
+        clearInterval(countdownTimer);
         countdownTimer = setInterval(function () {
 
             if (secondsLeft > 0) {

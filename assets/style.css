@@ -1,3 +1,151 @@
 * {
     font-family: 'Fjalla One', sans-serif;
 }
+
+.box {
+    width: 500px;
+    min-height: 500px;
+    margin: 200px auto;
+    padding: 75px;
+    border: 5px solid black;
+    border-radius: 20%;
+}
+
+h1 {
+    margin-left: 70px;
+    margin-right: 70px;
+    text-align: center;
+}
+
+/*
+ * Hiding Elements
+ */
+.hidden {
+    display: none;
+}
+
+.visually-hidden {
+    visibility: hidden;
+}
+
+/*
+ * Button Styles
+ */
+.btn {
+    width: 100%;
+    padding: 15px;
+    color: white;
+    background: black;
+    border-radius: 10px;
+    font-size: x-large;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: magenta;
+    border-color: magenta;
+}
+
+.btn-big {
+    font-size: xx-large;
+}
+
+.btn-again {
+    margin-top: 48px;
+}
+
+
+/*
+ * Quiz Question and Answer Screens
+ */
+
+ .timer {
+    border: 5px solid black;
+    padding: 10px;
+    border-radius: 100%;
+    position: absolute;
+    top: 175px;
+    left: 1300px;
+    font-size: x-large;
+}
+
+.question {
+    font-size: x-large;
+}
+
+.option {
+    display: block;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    background: black;
+    color: white;
+    font-size: large;
+    cursor: pointer;
+}
+
+.option:hover {
+    background: magenta;
+    border-color: magenta;
+}
+
+.message {
+    font-weight: bold;
+    font-size: xx-large;
+    background: red;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    margin:10px;
+}
+
+.correct {
+    background:green;
+}
+
+
+/*
+ * Quiz Finished Screen
+ */
+.summary {
+    margin-bottom: 24px;
+    text-align: center;
+    font-size: xx-large;
+}
+
+.initials {
+    width: 100%;
+    padding: 16px;
+    box-sizing: border-box;
+    margin-top: 48px;
+    margin-bottom: 8px;
+    font-size: x-large;
+}
+
+
+/*
+ * Score Table
+ */
+.scores {
+    font-size: x-large;
+    width: 100%;
+    margin-bottom: 64px;
+    border-collapse: collapse;
+}
+
+.scores th {
+    border-bottom: 3px solid black;
+    padding: 8px
+}
+
+.scores td {
+    text-align: center;
+    padding: 8px;
+}
+
+.score-item {
+    font-size: x-large;
+    text-align: center;
+}
